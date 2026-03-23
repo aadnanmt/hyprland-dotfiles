@@ -76,6 +76,7 @@ alias rb-waybar='killall waybar && waybar &'
 # =============================================================================
 alias gs='git status'
 alias ga='git add'
+alias gal='git add .'
 alias gc='git commit -m'
 alias gp='git push'
 alias gl='git pull'
