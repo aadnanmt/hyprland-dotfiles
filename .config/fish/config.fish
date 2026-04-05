@@ -1,21 +1,24 @@
 # =============================================================================
 #  INITIALIZATION
 # =============================================================================
+
+# Starship
 starship init fish | source
-set -g fish_greeting "" # remove greeting fish shell
+
+# remove fish shell greeting
+set -g fish_greeting ""
 
 # =============================================================================
-#  FILE & NAVIGATION (LSD & BAT)
+#  FILE & NAVIGATION SEDERHANA
 # =============================================================================
 alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'
 alias tree='lsd --tree'
-alias cat='bat'
-alias catp='bat -pp' # no line  num
+alias cat='bat' # line number
+alias catp='bat -pp' # no line number
 
-# Navigation shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -30,10 +33,22 @@ alias c='clear'
 alias upd='sudo pacman -Syu'
 alias aur='yay -Syu'
 alias update='sudo pacman -Syu && yay -Syu'
-alias install='sudo pacman -S'
-alias remove='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq) && yay -Sc'
-alias search='pacman -Ss'
+
+# i use abbr for command argument
+abbr -a install 'sudo pacman -S'
+abbr -a remove 'sudo pacman -Rns'
+abbr -a search 'pacman -Ss'
+
+# Safe cleanup function
+function clean
+    set orphans (pacman -Qtdq)
+    if test -n "$orphans"
+        sudo pacman -Rns $orphans
+    else
+        echo "Clean Cuyy: No orphan packages to remove."
+    end
+    yay -Sc
+end
 
 # =============================================================================
 #  RICE CUYY
@@ -44,24 +59,21 @@ alias clock='peaclock'
 alias bonsai='cbonsai -l -b'
 alias matrix='neo-matrix -D -a -s 15'
 
-
 # =============================================================================
-#  SYSTEM MONITORING
+#  SYSTEM & NETWORK MONITORING
 # =============================================================================
 alias df='duf'
 alias mem='free -h --si'
 alias top='htop'
-alias bigfiles='expac -S "%-20n %m" | sort -nk2 | tail -n 20'
 
-# =============================================================================
-#  NETWORK MONITORING
-# =============================================================================
 alias ipa='ip -c a'                      
 alias pingg='ping -c 5 google.com'       
 alias myip='curl -s https://ifconfig.me'
-alias ports='sudo ss -tulanp'
+alias port='sudo ss -tulanp'
 alias wifi='nmcli device wifi list'
-
+alias header='curl -I'
+# i change to speedtest-cli
+abbr -a speedtest 'speedtest-cli' 
 
 # =============================================================================
 #  CONFIG & DOTFILES RICE
@@ -69,78 +81,85 @@ alias wifi='nmcli device wifi list'
 alias conf-hypr='nano ~/.config/hypr/hyprland.conf'
 alias conf-fish='nano ~/.config/fish/config.fish'
 alias conf-waybar='nano ~/.config/waybar/config.jsonc'
-alias rb-waybar='killall waybar && waybar &'
 
 # =============================================================================
-#  GIT CUSTOM COMMANDS
+#  GIT (ABBR version)
 # =============================================================================
-alias gs='git status'
-alias ga='git add'
-alias gal='git add .'
-alias gc='git commit -m'
-alias gp='git push'
-alias gl='git pull'
-alias gf='git diff'
-alias gf='git diff .'
-alias gac='git add . && git commit -m'
+abbr -a gs 'git status'
+abbr -a ga 'git add'
+abbr -a gal 'git add .'
+abbr -a gc 'git commit -m'
+abbr -a gp 'git push'
+abbr -a gl 'git pull'
+abbr -a gd 'git diff'
+abbr -a gdc 'git diff --cached' # add diff cached
+abbr -a gac 'git add . && git commit -m'
 alias glog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
+# =============================================================================
+# EDGE STACK (Bun, Hono, Turso, Cloudflare,dll)
+# =============================================================================
+abbr -a b 'bun'
+abbr -a bi 'bun install'
+abbr -a br 'bun run'
+abbr -a bx 'bun x'
+
+abbr -a n 'node'
+abbr -a ni 'npm install'
+abbr -a nr 'npm run'
+abbr -a ns 'npm start'
+abbr -a nd 'npm run dev'
+
+abbr -a wd 'wrangler dev'
+abbr -a wp 'wrangler pages deploy'
+abbr -a db 'turso db shell'
 
 # =============================================================================
 # Python
 # =============================================================================
 alias py='python'
+alias py3='python3'
 alias venv='python -m venv .venv'
 alias activate='source .venv/bin/activate.fish'
-alias pip-install='pip install -r requirements.txt'
-alias pip-freeze='pip freeze > requirements.txt'
-
-# =============================================================================
-# NPM
-# =============================================================================
-alias n='node'
-alias ni='npm install'
-alias nr='npm run'
-alias ns='npm start'
-alias nd='npm run dev'
-
-# =============================================================================
-# BUN
-# =============================================================================
-alias b='bun'
-alias bi='bun install'
-alias br='bun run'
-alias bx='bun x'
-
-# =============================================================================
-# check
-# =============================================================================
-alias header='curl -I'
-alias myip='curl -s https://ifconfig.me'
-alias speedtest='curl -s https://githubusercontent.com | python'
+abbr -a pip-install 'pip install -r requirements.txt'
+abbr -a pip-freeze 'pip freeze > requirements.txt'
 
 #==============================================================================
-# Sql
+# SERVICE DB
 #==============================================================================
 alias psql-up='sudo systemctl start postgresql'
 alias psql-down='sudo systemctl stop postgresql'
 alias redis-up='sudo systemctl start redis'
-alias db-ls='sudo -u postgres psql -c "\l"'
-
 
 #==============================================================================
-# Podman Docker
+# Container (Docker & Podman)
 # =============================================================================
-alias d='docker'
-alias dc='docker-compose'
+abbr -a d 'docker'
+abbr -a dc 'docker-compose'
 alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 alias dimg='docker images'
-alias dstop='docker stop (docker ps -q)'
 alias dclean='docker system prune -a --volumes'
 
-alias p='podman'
-alias pc='podman-compose'
-alias pps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
-alias pimg='docker images'
-alias pstop='docker stop (docker ps -q)'
-alias pclean='docker system prune -a --volumes'
+function dstop
+    set containers (docker ps -q)
+    if test -n "$containers"
+        docker stop $containers
+    else
+        echo "FYI: No running docker container, cuyy."
+    end
+end
+
+abbr -a p 'podman'
+abbr -a pc 'podman-compose'
+alias pps='podman ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias pimg='podman images'
+alias pclean='podman system prune -a --volumes'
+
+function pstop
+    set containers (podman ps -q)
+    if test -n "$containers"
+        podman stop $containers
+    else
+        echo "FYI: No running podman container, cuyyy."
+    end
+end
