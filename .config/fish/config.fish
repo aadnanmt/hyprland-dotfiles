@@ -78,9 +78,28 @@ abbr -a speedtest 'speedtest-cli'
 # =============================================================================
 #  CONFIG & DOTFILES RICE
 # =============================================================================
-alias conf-hypr='nano ~/.config/hypr/hyprland.conf'
-alias conf-fish='nano ~/.config/fish/config.fish'
-alias conf-waybar='nano ~/.config/waybar/config.jsonc'
+alias conf-hypr='cd ~/.config/hypr/conf/ && nvim .'
+alias conf-fish='nvim ~/.config/fish/config.fish'
+alias conf-waybar='nvim ~/.config/waybar/config.jsonc'
+alias conf-nvim='cd ~/.config/nvim/ && nvim .'
+
+# =============================================================================
+#  CYAN COLOR SCHEME (Syntax Highlighting)
+# =============================================================================
+set -g fish_color_command 00ffff
+set -g fish_color_param 00d7d7
+set -g fish_color_keyword 008080
+set -g fish_color_quote 5fffff
+set -g fish_color_redirection d7ffff
+set -g fish_color_error ff005f
+set -g fish_color_end 00afaf
+set -g fish_color_comment 005f5f
+set -g fish_color_match --background=008080
+set -g fish_color_search_match --background=005f5f
+set -g fish_color_operator 00afaf
+set -g fish_color_escape 00ffff
+set -g fish_color_autosuggestion 005f5f
+
 
 # =============================================================================
 #  GIT (ABBR version)
