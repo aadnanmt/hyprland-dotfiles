@@ -1,0 +1,37 @@
+# lsd config
+classic: false
+blocks:
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - name
+color:
+  when: always
+  theme: custom
+date: date
+dereference: false
+display: visible-only
+icons:
+  when: always
+  theme: fancy
+  separator: " "
+ignore-globs:
+  - .git
+  - .DS_Store
+indicators: false
+layout: grid
+recursion:
+  enabled: false
+  depth: 2
+size: default
+permission: rwx
+sorting:
+  column: name
+  reverse: false
+  dir-grouping: first
+no-symlink: false
+total-size: false
+symlink-arrow: ⇒
+hyperlink: never
