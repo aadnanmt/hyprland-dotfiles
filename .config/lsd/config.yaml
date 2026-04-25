@@ -17,14 +17,10 @@ icons:
   when: always
   theme: fancy
   separator: " "
-ignore-globs:
-  - .git
-  - .DS_Store
 indicators: false
 layout: grid
 recursion:
   enabled: false
-  depth: 2
 size: default
 permission: rwx
 sorting:
