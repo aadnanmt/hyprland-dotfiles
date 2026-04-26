@@ -1,0 +1,21 @@
+[manager]
+cwd = { fg = "#00ffff", italic = true }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#008080" }
+
+# Highlighting
+hovered       = { bg = "#005f5f", bold = true }
+selection     = { bg = "#00afaf", bold = true }
+
+# File-specific colors
+[filetype]
+rules = [
+	{ mime = "directory", fg = "#00ffff", bold = true },
+	{ mime = "audio/*",   fg = "#00afaf" },
+	{ mime = "video/*",   fg = "#00afaf" },
+	{ mime = "image/*",   fg = "#00d7d7" },
+	{ name = "*.fish",    fg = "#00ffff" },
+	{ name = "*.lua",     fg = "#5fffff" },
+]
