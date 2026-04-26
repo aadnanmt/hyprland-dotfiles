@@ -1,4 +1,4 @@
-# Cyan Rice Dotfiles (WIP | develop stage)
+# Cyan Rice Dotfiles
 
 This repository contains personal config files (dotfiles) for Arch Linux, featuring high customize Hyprland setup with a consistent **Cyan Color** aesthetic.
 
@@ -19,6 +19,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 ├── alacritty/
 ├── btop/
 ├── cava/
+├── dunst/
 ├── fastfetch/
 ├── fish/
 ├── hypr/
@@ -35,7 +36,6 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 ├── wlogout/
 └── yazi/
 ```
-
 ## Key Program
 
 As defined in `hypr/conf/programs.conf`:
@@ -78,5 +78,6 @@ This setup is built upon the incredible work of the open-source community. speci
 - **[Muhammad Diaz (MDiaznf23)](https://github.com/MDiaznf23):** For the some config  on `simple-autoricing-i3wm-dotfiles`.
 - **[LazyVim](https://www.lazyvim.org/):** For the modern and powerful Neovim config framework.
 - **[Shivam Salkar (minimal-waybar-config)](https://github.com/shivam-salkar/minimal-waybar-config):** For the sleek and minimal Waybar configuration that serves as the base for the status bar.
+- **[Mahaveer Gurjar (Hyprlock-Dots)](https://github.com/mahaveergurjar/Hyprlock-Dots):** For the collection of Hyprlock layouts and scripts.
 - **[Hyprland Community](https://hyprland.org/):** For the amazing Wayland compositor.
 - **Arch Linux:** For being the foundation of this ricing journey.
