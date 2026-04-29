@@ -5,7 +5,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 ## Screenshots
 
 <details>
-<summary> Interface & Layout</summary>
+<summary>🖼️ Interface & Layout</summary>
 <br>
 <img src="preview/interface-0.png" width="800">
 <img src="preview/interface-1.png" width="800">
@@ -14,7 +14,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 </details>
 
 <details>
-<summary>Apps  & Menus (Wofi)</summary>
+<summary>🚀 Apps Launcher & Menus (Wofi)</summary>
 <br>
 <img src="preview/wofi-apps.png" width="800">
 <img src="preview/wofi-emoji-style.png" width="800">
@@ -23,7 +23,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 </details>
 
 <details>
-<summary>TUI & CLI Tools</summary>
+<summary>💻 TUI & CLI Tools</summary>
 <br>
 <img src="preview/fastfetch.png" width="400">
 <img src="preview/tui-apps.png" width="800">
@@ -74,7 +74,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 As defined in `hypr/conf/programs.conf`:
 
 - **Terminal:** Kitty
-- **File Manager:** Thunar
+- **File Manager:** Dolphin / Thunar
 - **Menu/Launcher:** Wofi (Cyan-cyber theme)
 - **Browser:** Firefox
 - **Editor:** Neovim / VS Code
@@ -85,17 +85,34 @@ As defined in `hypr/conf/programs.conf`:
 
 The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 
+### Apps & Menus
 - `Super + Return` / `Q`: Open Terminal
 - `Super + B`: Open Browser
 - `Super + E`: Open File Manager
 - `Super + D`: Open Wofi Launcher
-- `Super + L`: Lock Screen
+- `Super + .`: Emoji Selector (Wofi)
+- `Super + M`: Power Menu (Wofi)
+- `Super + G`: Volume Control (Pavucontrol)
+- `Super + Shift + W`: Wallpaper Select (Wofi)
+- `Super + Shift + S`: Screenshot (Grim/Slurp)
+- `Super + Shift + V`: Open Neovim
+
+### Window Management
 - `Super + Shift + Q`: Close active window
+- `Super + V`: Toggle floating
+- `Super + P`: Pseudo Tiling
+- `Super + J`: Toggle Split
+- `Super + Arrow Keys`: Move focus
+
+### Workspaces
 - `Super + 1-10`: Switch workspaces
 - `Super + Shift + 1-10`: Move window to workspace
-- `Super + V`: Toggle floating
-- `Super + M`: Exit/Power Menu (Wofi)
-- `Super + Shift + W`: Wallpaper Select (Wofi)
+- `Super + Scroll`: Switch workspaces
+
+### System (Media Keys)
+- `Vol Up/Down/Mute`: Audio Control
+- `Brightness Up/Down`: Screen Brightness
+- `Media Play/Pause/Next/Prev`: Player Control
 
 ## Usage
 
