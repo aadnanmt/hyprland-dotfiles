@@ -30,7 +30,6 @@ alias hom='cd ~'
 alias x='exit'
 alias c='clear'
 alias reload='source ~/.config/fish/config.fish && echo "Shell reloaded, Cuyy!"'
-alias path='echo $PATH | tr " " "\n"'
 
 # TUI apps rice
 alias menu='rofi -show drun -theme ~/.config/rofi/themes/cyan-cyber.rasi'
