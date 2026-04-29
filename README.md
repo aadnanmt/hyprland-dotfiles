@@ -22,18 +22,20 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 ├── dunst/
 ├── fastfetch/
 ├── fish/
+├── htop/
 ├── hypr/
 │   ├── conf/
 │   ├── hyprland.conf
 │   ├── hyprlock.conf
 │   └── hyprpaper.conf
-├── hyprlock/
 ├── kitty/
+├── lazygit/
+├── lsd/
 ├── nvim/
-├── rofi/
+├── theme/
 ├── wallpapers/
 ├── waybar/
-├── wlogout/
+├── wofi/
 └── yazi/
 ```
 ## Key Program
@@ -42,11 +44,11 @@ As defined in `hypr/conf/programs.conf`:
 
 - **Terminal:** Kitty
 - **File Manager:** Dolphin
-- **Menu/Launcher:** Rofi (Cyan-cyber theme)
+- **Menu/Launcher:** Wofi (Cyan-cyber theme)
 - **Browser:** Firefox
 - **Editor:** Neovim
 - **Lock Screen:** Hyprlock
-- **Logout:** Wlogout
+- **Logout/Power Menu:** Wofi Power Menu
 
 ## Keybinding
 
@@ -55,27 +57,28 @@ The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 - `Super + Return` / `Q`: Open Terminal
 - `Super + B`: Open Browser
 - `Super + E`: Open File Manager
-- `Super + D`: Open Rofi Launcher
-- `Super + Shift + R`: Reload Hyprland
-- `Super + Shift + W`: Reload Waybar
+- `Super + D`: Open Wofi Launcher
 - `Super + L`: Lock Screen
 - `Super + Shift + Q`: Close active window
 - `Super + 1-10`: Switch workspaces
 - `Super + Shift + 1-10`: Move window to workspace
 - `Super + V`: Toggle floating
-- `Super + M`: Exit/Power Menu
+- `Super + M`: Exit/Power Menu (Wofi)
+- `Super + Shift + W`: Wallpaper Select (Wofi)
 
 ## Usage
 
 These configurations are designed to be located in `~/.config/`. 
 - To apply changes to Hyprland, reload the compositor (usually automatic on save or via `hyprctl reload`).
 - To reload Waybar, use the script at `waybar/reload.sh`.
+
 ## Credits
 
 This setup is built upon the incredible work of the open-source community. special thanks to:
 
-- **[Aditya Shakya (adi1090x)](https://github.com/adi1090x/rofi):** For the beautiful Rofi configurations and themes that form the basis of the launcher and power menu.
-- **[Muhammad Diaz (MDiaznf23)](https://github.com/MDiaznf23):** For the some config  on `simple-autoricing-i3wm-dotfiles`.
+- **[elifouts (Dotfiles)](https://github.com/elifouts/Dotfiles):** For the beautiful Wofi configurations, Powermenu, and Hyprlock setup.
+- **[Aditya Shakya (adi1090x)](https://github.com/adi1090x/rofi):** For the inspiration behind the Rofi/Wofi themes.
+- **[Muhammad Diaz (MDiaznf23)](https://github.com/MDiaznf23):** For the some config on `simple-autoricing-i3wm-dotfiles`.
 - **[LazyVim](https://www.lazyvim.org/):** For the modern and powerful Neovim config framework.
 - **[Shivam Salkar (minimal-waybar-config)](https://github.com/shivam-salkar/minimal-waybar-config):** For the sleek and minimal Waybar configuration that serves as the base for the status bar.
 - **[Mahaveer Gurjar (Hyprlock-Dots)](https://github.com/mahaveergurjar/Hyprlock-Dots):** For the collection of Hyprlock layouts and scripts.
