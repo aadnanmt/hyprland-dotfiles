@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Toggle logic
+if pgrep -x "wofi" > /dev/null; then
+    pkill -x "wofi"
+    exit 0
+fi
+
 # --- Config optimize Cyan Rice Wallpaper Selector---
 WALLPAPER_DIR="$HOME/.config/wallpapers"
 CACHE_DIR="$HOME/.cache/wofi-thumbs"

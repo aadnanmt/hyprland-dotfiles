@@ -2,7 +2,6 @@
 
 This repository contains personal config files (dotfiles) for Arch Linux, featuring high customize Hyprland setup with a consistent **Cyan Color** aesthetic.
 
-
 ## Project Overview
 
 - **Window Manager:** [Hyprland](https://hyprland.org/) (Wayland Compositor)
@@ -38,6 +37,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 ├── wofi/
 └── yazi/
 ```
+
 ## Key Program
 
 As defined in `hypr/conf/programs.conf`:
@@ -68,7 +68,8 @@ The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 
 ## Usage
 
-These configurations are designed to be located in `~/.config/`. 
+These configurations are designed to be located in `~/.config/`.
+
 - To apply changes to Hyprland, reload the compositor (usually automatic on save or via `hyprctl reload`).
 - To reload Waybar, use the script at `waybar/reload.sh`.
 

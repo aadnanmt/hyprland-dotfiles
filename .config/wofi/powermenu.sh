@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Toggle logic
+if pgrep -x "wofi" > /dev/null; then
+    pkill -x "wofi"
+    exit 0
+fi
+
 # Option
 shutdown='󰐥 Shutdown'
 reboot='󰜉 Reboot'

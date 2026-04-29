@@ -1,5 +1,5 @@
 /**
- Cyan Rice Wofi Wallpaper Style
+ * Cyan Rice Wofi - Grid Optimized Style
  **/
 
 * {
@@ -9,18 +9,22 @@
 window {
   background-color: #050505;
   border: 1px solid #00ffff;
-  border-radius: 12px;
+  border-radius: 10px;
+}
+
+#outer-box {
+  margin: 5px;
 }
 
 #inner-box {
-  margin: 10px;
+  margin: 5px;
 }
 
 #input {
-  margin: 10px 20px;
-  padding: 12px;
+  margin: 10px 15px;
+  padding: 8px;
   border: 1px solid #005f5f;
-  border-radius: 8px;
+  border-radius: 6px;
   color: #00ffff;
   background-color: #001a1a;
 }
@@ -29,10 +33,14 @@ window {
   border: 1px solid #00ffff;
 }
 
-#entry {
-  padding: 5px;
+#scroll {
   margin: 5px;
-  border-radius: 10px;
+}
+
+#entry {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
   border: 1px solid transparent;
 }
 
@@ -41,16 +49,13 @@ window {
   border: 1px solid #00ffff;
 }
 
+/* Biar gambar rata tengah di grid */
 #img {
-  margin: 0px;
-  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 
 #text {
   enabled: false;
-  color: transparent;
   font-size: 0px;
-  margin: 0px;
-  padding: 0px;
 }
