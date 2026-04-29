@@ -2,6 +2,36 @@
 
 This repository contains personal config files (dotfiles) for Arch Linux, featuring high customize Hyprland setup with a consistent **Cyan Color** aesthetic.
 
+## Screenshots
+
+<details>
+<summary> Interface & Layout</summary>
+<br>
+<img src="preview/interface-0.png" width="800">
+<img src="preview/interface-1.png" width="800">
+<img src="preview/interface-3.png" width="800">
+<img src="preview/waybar-style_cyqn.png" width="800">
+</details>
+
+<details>
+<summary>Apps  & Menus (Wofi)</summary>
+<br>
+<img src="preview/wofi-apps.png" width="800">
+<img src="preview/wofi-emoji-style.png" width="800">
+<img src="preview/wofi-power.png" width="800">
+<img src="preview/wofi-wallpaper-selector.png" width="800">
+</details>
+
+<details>
+<summary>TUI & CLI Tools</summary>
+<br>
+<img src="preview/fastfetch.png" width="400">
+<img src="preview/tui-apps.png" width="800">
+<img src="preview/lsd-style.png" width="800">
+<img src="preview/yazi.png" width="800">
+<img src="preview/ncdu.png" width="800">
+</details>
+
 ## Project Overview
 
 - **Window Manager:** [Hyprland](https://hyprland.org/) (Wayland Compositor)
@@ -10,6 +40,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **Terminal:** [Kitty](https://sw.kovidgoyal.net/kitty/)
 - **Theme:** Custom Cyan-themed UI components (`#00ffff`), including borders, prompt, and terminal colors.
+- **License:** [GPL-3.0](LICENSE)
 
 ## Directory Structure
 
@@ -43,10 +74,10 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 As defined in `hypr/conf/programs.conf`:
 
 - **Terminal:** Kitty
-- **File Manager:** Dolphin
+- **File Manager:** Thunar
 - **Menu/Launcher:** Wofi (Cyan-cyber theme)
 - **Browser:** Firefox
-- **Editor:** Neovim
+- **Editor:** Neovim / VS Code
 - **Lock Screen:** Hyprlock
 - **Logout/Power Menu:** Wofi Power Menu
 
@@ -68,8 +99,7 @@ The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 
 ## Usage
 
-These configurations are designed to be located in `~/.config/`.
-
+These configurations are designed to be located in `~/.config/`. 
 - To apply changes to Hyprland, reload the compositor (usually automatic on save or via `hyprctl reload`).
 - To reload Waybar, use the script at `waybar/reload.sh`.
 
@@ -78,6 +108,7 @@ These configurations are designed to be located in `~/.config/`.
 This setup is built upon the incredible work of the open-source community. special thanks to:
 
 - **[elifouts (Dotfiles)](https://github.com/elifouts/Dotfiles):** For the beautiful Wofi configurations, Powermenu, and Hyprlock setup.
+- **[dln (wofi-emoji)](https://github.com/dln/wofi-emoji):** For the emoji selector script logic used in `emoji.sh`.
 - **[Aditya Shakya (adi1090x)](https://github.com/adi1090x/rofi):** For the inspiration behind the Rofi/Wofi themes.
 - **[Muhammad Diaz (MDiaznf23)](https://github.com/MDiaznf23):** For the some config on `simple-autoricing-i3wm-dotfiles`.
 - **[LazyVim](https://www.lazyvim.org/):** For the modern and powerful Neovim config framework.
