@@ -10,7 +10,7 @@
 @define-color seafoam     #5fffaf;
 @define-color deep_ocean  #005f5f;
 @define-color alert_red   #ff005f;
-@define-color text_main   #e0ffff
+@define-color text_main   #e0ffff;
 @define-color void        #000;
 
 * {
@@ -87,7 +87,8 @@
 
 /* --- End Group Launcher --- */
 
-#clock, #custom-weather {
+#clock,
+#custom-weather {
   color: @cyan_main;
 }
 
@@ -107,7 +108,8 @@
   color: @electric_blue;
 }
 
-#cpu, #memory {
+#cpu,
+#memory {
   color: @cyan_dim;
 }
 

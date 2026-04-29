@@ -1,7 +1,7 @@
 {
-    "custom/arch": {
-        "format": "󰣇",
-        "tooltip": true,
-        "tooltip-format": "Made with 𖹭 \n ~shivam"
-    }
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "Made with 𖹭 \n ~shivam"
+  }
 }
