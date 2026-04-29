@@ -1,0 +1,56 @@
+/**
+ Cyan Rice Wofi Wallpaper Style
+ **/
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+window {
+  background-color: #050505;
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+}
+
+#inner-box {
+  margin: 10px;
+}
+
+#input {
+  margin: 10px 20px;
+  padding: 12px;
+  border: 1px solid #005f5f;
+  border-radius: 8px;
+  color: #00ffff;
+  background-color: #001a1a;
+}
+
+#input:focus {
+  border: 1px solid #00ffff;
+}
+
+#entry {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+#entry:selected {
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid #00ffff;
+}
+
+#img {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+#text {
+  enabled: false;
+  color: transparent;
+  font-size: 0px;
+  margin: 0px;
+  padding: 0px;
+}

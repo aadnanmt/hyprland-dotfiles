@@ -1,0 +1,67 @@
+/**
+ * Cyan Rice Wofi Theme
+ **/
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+}
+
+window {
+  margin: 0px;
+  border: 1px solid #00ffff;
+  background-color: #050505;
+  border-radius: 12px;
+}
+
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #050505;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #050505;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+#input {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #005f5f;
+  border-radius: 8px;
+  color: #00ffff;
+  background-color: #001a1a;
+}
+
+#input:focus {
+  border: 1px solid #00ffff;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #00ffff;
+}
+
+#entry {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+#entry:selected {
+  background-color: #00ffff;
+}
+
+#entry:selected #text {
+  color: #050505;
+}
