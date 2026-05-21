@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Toggle logic
+# -----------------------------------------------------
+# --- CYAN RICE WALLPAPER SELECTOR | Adapted from github.com/elifouts/Dotfiles ---
+# -----------------------------------------------------
+
+# --- Toggle Logic ---
 if pgrep -x "wofi" > /dev/null; then
     pkill -x "wofi"
     exit 0
@@ -15,46 +19,60 @@ STYLE_FILE="$HOME/.config/wofi/style-wallpaper.css"
 mkdir -p "$CACHE_DIR"
 cd "$WALLPAPER_DIR" || exit 1
 
-generate_thumb() {
-    local img="$1"
-    local hash_name=$(echo -n "$img" | md5sum | awk '{print $1}')
-    local thumb="$CACHE_DIR/$hash_name.jpg"
-    
+# --- Parallel Thumbnail Generation ---
+export CACHE_DIR
+# Supported formats: jpg, jpeg, png, webp
+SUPPORTED_EXT="\( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \)"
+FILES=$(find . -maxdepth 1 -type f $SUPPORTED_EXT -printf "%P\n" | sort)
+
+echo "$FILES" | xargs -I {} -P $(nproc) bash -c '
+    img="{}"
+    hash_name=$(echo -n "$img" | md5sum | awk "{print \$1}")
+    thumb="$CACHE_DIR/$hash_name.jpg"
     if [ ! -s "$thumb" ]; then
         magick "$img" -thumbnail 300x300^ -gravity center -extent 300x300 -quality 75 -strip "$thumb" 2>/dev/null
     fi
-    echo "$thumb"
-}
+'
 
+# Build the list for wofi
 LIST=""
-for img in *.{jpg,jpeg,png}; do
-    [ -e "$img" ] || continue
-    thumb_path=$(generate_thumb "$img")
+while IFS= read -r img; do
+    [ -z "$img" ] && continue
+    hash_name=$(echo -n "$img" | md5sum | awk '{print $1}')
+    thumb_path="$CACHE_DIR/$hash_name.jpg"
     LIST="${LIST}img:${thumb_path}:text:${img}\n"
-done
+done <<< "$FILES"
 
 # exec wofi
 SELECTED_RAW=$(echo -e "$LIST" | wofi --dmenu \
     --conf "$CONFIG_FILE" \
     --style "$STYLE_FILE" \
     --prompt "Select Wallpaper" \
-    --cache-file /dev/null)
+--cache-file /dev/null)
 
 SELECTED=$(echo "$SELECTED_RAW" | sed 's/.*:text://')
 
 if [ -n "$SELECTED" ]; then
     WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED"
     
-    hyprctl hyprpaper preload "$WALLPAPER_PATH"
+    hyprctl hyprpaper unload all
+    
+    
     MONITORS=$(hyprctl monitors -j | jq -r '.[].name')
     for m in $MONITORS; do
         hyprctl hyprpaper wallpaper "$m,$WALLPAPER_PATH"
     done
-    hyprctl hyprpaper unload all
     
-    cat <<EOF > ~/.config/hypr/hyprpaper.conf
+    cat <<EOF > "$HOME/.config/hypr/hyprpaper.conf"
 preload = $WALLPAPER_PATH
-wallpaper = ,$WALLPAPER_PATH
+
+wallpaper {
+    monitor =
+    path = $WALLPAPER_PATH
+}
+
+ipc = true
 splash = false
 EOF
+    
 fi

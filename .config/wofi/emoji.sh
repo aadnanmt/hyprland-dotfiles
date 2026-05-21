@@ -1,15 +1,15 @@
 #!/bin/bash
-# Cyan Rice Emoji Selector
-# based config from github.com/dln/wofi-emoji/
-# and adjust from github.com/aadnanmt
 
-# toggle logic  : if wofi is runing
+# ----------------------------------------------------- 
+# --- CYAN RICE EMOJI SELECTOR | Based on github.com/dln/wofi-emoji/ ---
+# ----------------------------------------------------- 
+
 if pgrep -x "wofi" > /dev/null; then
     pkill -x "wofi"
     exit 0
 fi
 
-WIDTH=800
+WIDTH=900
 HEIGHT=400
 STYLE="$HOME/.config/wofi/style.css"
 
@@ -23,7 +23,7 @@ else
     SELECTED=$(sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu -i --prompt "Emoji" --width $WIDTH --height $HEIGHT --style "$STYLE" | cut -d ' ' -f 1 | tr -d '\n')
     if [ -n "$SELECTED" ]; then
         echo -n "$SELECTED" | wl-copy
-        notify-send "Emoji Copied" "$SELECTED sudah di copy ke clipboard bray." -i face-smile
+        notify-send "Emoji Copied" "$SELECTED has been copied to the clipboard." -i face-smile
     fi
 fi
 exit
@@ -1764,9 +1764,9 @@ exit
 🇿🇦 flag south africa south africa flag nation country banner south africa
 🇿🇲 flag zambia zm flag nation country banner zambia
 🇿🇼 flag zimbabwe zw flag nation country banner zimbabwe
-🏴󠁧󠁢󠁥󠁮󠁧󠁿 flag england flag english
-🏴󠁧󠁢󠁳󠁣󠁴󠁿 flag scotland flag scottish
-🏴󠁧󠁢󠁷󠁬󠁳󠁿 flag wales flag welsh
+🏴󠁧󠁢󠁥󠁮󠁧U+E007F flag england flag english
+🏴󠁧󠁢󠁳󠁣󠁴U+E007F flag scotland flag scottish
+🏴󠁧󠁢󠁷󠁬󠁳U+E007F flag wales flag welsh
 🥲 smiling face with tear sad cry pretend
 🥸 disguised face pretent brows glasses moustache
 🤌 pinched fingers size tiny small

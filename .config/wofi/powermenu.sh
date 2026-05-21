@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-# Toggle logic
+# -----------------------------------------------------
+# --- POWER MENU ---
+# -----------------------------------------------------
+
+# --- Toggle Logic ---
 if pgrep -x "wofi" > /dev/null; then
     pkill -x "wofi"
     exit 0
@@ -19,17 +23,17 @@ selected=$(echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | wofi --dmenu
 case $selected in
     "$shutdown")
         systemctl poweroff
-        ;;
+    ;;
     "$reboot")
         systemctl reboot
-        ;;
+    ;;
     "$lock")
         hyprlock
-        ;;
+    ;;
     "$suspend")
         systemctl suspend
-        ;;
+    ;;
     "$logout")
         hyprctl dispatch exit
-        ;;
+    ;;
 esac
