@@ -1,16 +1,18 @@
+# ----------------------------------------------------- 
+# --- DUNST CONFIGURATION ---
+# ----------------------------------------------------- 
+
 [global]
-    # --- DISPLAY---
+    # --- DISPLAY ---
     monitor = 0
     follow = mouse
     
-    # width and height
     width = (300, 350)
     height = (50, 100)
     
     origin = top-right
     offset = (20, 60)
     
-    # Scale and progress bar
     notification_limit = 5
     progress_bar = true
     progress_bar_height = 6
@@ -18,7 +20,7 @@
     progress_bar_min_width = 150
     progress_bar_max_width = 300
 
-    # --- LOOK & FEEL (Cyan rice style) ---
+    # --- LOOK & FEEL (Cyan rice aesthetic) ---
     font = JetBrainsMono Nerd Font 10
     
     markup = full
@@ -30,7 +32,7 @@
     text_icon_padding = 12
     gap_size = 8
     
-    # Borders and rdius
+    # Borders and Radius
     frame_width = 2
     frame_color = "#00ffff"
     separator_color = "frame"
