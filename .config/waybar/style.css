@@ -1,6 +1,6 @@
-/* =============================================================================
-   MY CYAN RICE WAYBAR
-   ============================================================================= */
+/* ----------------------------------------------------- 
+# --- WAYBAR STYLESHEET ---
+# ----------------------------------------------------- */
 @define-color bg_main     transparent;
 @define-color bg_module   rgba(0, 0, 0, 0.2);
 @define-color cyan_main   #00ffff;
@@ -51,8 +51,7 @@
   border-radius: 8px;
 }
 
-/* --- Start Group Launcher ---*/
-/* --- (Arch Logo + Workspaces) --- */
+/* --- LAUNCHER GROUP --- */
 #launcher {
   background-color: @bg_module;
   border: 1px solid rgba(0, 255, 255, 0.4);
@@ -84,8 +83,6 @@
   background: transparent;
   border-radius: 4px;
 }
-
-/* --- End Group Launcher --- */
 
 #clock,
 #custom-weather {

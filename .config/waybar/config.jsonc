@@ -13,7 +13,6 @@
     "network",
     "cpu",
     "memory",
-    "custom/docker",
     "tray",
     "custom/lock",
     "custom/power",
@@ -100,19 +99,11 @@
     "format": "⏻",
   },
 
-  "custom/docker": {
-    "format": "{}",
-    "return-type": "json",
-    "interval": 10,
-    "exec": "/home/nanoo/.config/waybar/scripts/docker-stats/docker-stats",
-    "tooltip": true,
-  },
-
   "custom/weather": {
     "format": "{}",
     "tooltip": true,
     "interval": 1800,
-    "exec": "/home/nanoo/.config/waybar/scripts/weather-stats/weather-stats",
+    "exec": "~/.config/waybar/scripts/weather-stats/weather-stats",
     "return-type": "json",
   },
   "include": ["~/.config/waybar/scripts/modules.json"],
