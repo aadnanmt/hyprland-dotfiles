@@ -16,6 +16,4 @@ rules = [
 	{ mime = "audio/*",   fg = "#00afaf" },
 	{ mime = "video/*",   fg = "#00afaf" },
 	{ mime = "image/*",   fg = "#00d7d7" },
-	{ name = "*.fish",    fg = "#00ffff" },
-	{ name = "*.lua",     fg = "#5fffff" },
 ]
