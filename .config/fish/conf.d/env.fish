@@ -2,12 +2,6 @@
 #  PATH & ENVIRONMENT VARIABLES
 # =============================================================================
 
-# PNPM
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-
 # Bun
 set -gx BUN_INSTALL "$HOME/.bun"
 if not string match -q -- $BUN_INSTALL/bin $PATH

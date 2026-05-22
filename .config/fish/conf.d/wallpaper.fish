@@ -1,22 +1,30 @@
 # =============================================================================
-#  WALLPAPER HANDLING
+#  WALLPAPER HANDLING (OPTIMIZE IPC)
 # =============================================================================
 
 function wall
     if test -f "$argv[1]"
         set wall_path (realpath "$argv[1]")
         
-        # update hyprpaper.conf
+        # Preload the new wallpaper via IPC
+        hyprctl hyprpaper preload "$wall_path"
+        
+        # apply to all active monitors
+        set monitors (hyprctl monitors -j | jq -r '.[].name')
+        for m in $monitors
+            hyprctl hyprpaper wallpaper "$m,$wall_path"
+        end
+        
+        # clean up old preload to save VRAM
+        hyprctl hyprpaper unload all
+        
+        # Update config file for next boot
         echo "preload = $wall_path" > ~/.config/hypr/hyprpaper.conf
         echo "wallpaper = ,$wall_path" >> ~/.config/hypr/hyprpaper.conf
         echo "splash = false" >> ~/.config/hypr/hyprpaper.conf
         
-        # reload hyprpaper
-        pkill hyprpaper
-        hyprpaper & disown
-        
-        echo "Wallpaper updated to: $wall_path"
+        echo "Wallpaper updated via IPC to: $wall_path"
     else
-        echo "File tidak ditemukan, Cuyy!"
+        echo "File not found or failed process! Check again in your path."
     end
 end
