@@ -6,7 +6,7 @@
 
 SOURCE_DIR="$HOME/.config"
 BACKUP_DIR="$HOME/DOTFILES/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
-CONFIG=("hypr" "kitty" "fish" "waybar" "wofi" "dunst" "nvim" "fastfetch" "btop" "lsd")
+CONFIG=("hypr" "kitty" "fish" "waybar" "wofi" "dunst" "nvim" "fastfetch" "btop" "lsd" "yazi" "wallpapers" "lazygit" "cava" "theme" "ranger" "alacritty" "htop")
 
 # ANSI Colors
 CYAN='\033[0;36m'
