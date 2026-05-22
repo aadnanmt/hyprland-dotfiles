@@ -1,5 +1,8 @@
+# ----------------------------------------------------- 
+# --- FISH CONFIGURATION ---
+# ----------------------------------------------------- 
 
-# Initial
+# --- Initialization ---
 if status is-interactive
     # Starship Prompt
     starship init fish | source

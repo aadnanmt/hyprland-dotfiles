@@ -1,26 +1,26 @@
-# =============================================================================
-#  PATH & ENVIRONMENT VARIABLES
-# =============================================================================
+# ----------------------------------------------------- 
+# --- PATH & ENVIRONMENT VARIABLES ---
+# ----------------------------------------------------- 
 
-# Bun
+# --- Bun ---
 set -gx BUN_INSTALL "$HOME/.bun"
 if not string match -q -- $BUN_INSTALL/bin $PATH
   set -gx PATH "$BUN_INSTALL/bin" $PATH
 end
 
-# Default apps
+# --- Default Applications ---
 set -gx EDITOR nano
 set -gx VISUAL nvim
 set -gx TERMINAL kitty
 
-# Manpages in color
+# --- Pager Settings ---
 if command -v bat > /dev/null
     set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
 
-# Fix gpg tty
+# --- GPG Settings ---
 set -gx GPG_TTY (tty)
 
-# Encoding
+# --- Localization ---
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
