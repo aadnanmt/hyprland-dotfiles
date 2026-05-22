@@ -5,7 +5,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 ## Screenshots
 
 <details>
-<summary>🖼️ Interface & Layout</summary>
+<summary>Interface & Layout</summary>
 <br>
 <img src="preview/interface-0.png" width="800">
 <img src="preview/interface-1.png" width="800">
@@ -14,7 +14,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 </details>
 
 <details>
-<summary>🚀 Apps Launcher & Menus (Wofi)</summary>
+<summary>Apps Launcher & Menus (Wofi)</summary>
 <br>
 <img src="preview/wofi-apps.png" width="800">
 <img src="preview/wofi-emoji-style.png" width="800">
@@ -23,7 +23,7 @@ This repository contains personal config files (dotfiles) for Arch Linux, featur
 </details>
 
 <details>
-<summary>💻 TUI & CLI Tools</summary>
+<summary>TUI & CLI Tools</summary>
 <br>
 <img src="preview/fastfetch.png" width="400">
 <img src="preview/tui-apps.png" width="800">
@@ -86,6 +86,7 @@ As defined in `hypr/conf/programs.conf`:
 The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 
 ### Apps & Menus
+
 - `Super + Return` / `Q`: Open Terminal
 - `Super + B`: Open Browser
 - `Super + E`: Open File Manager
@@ -98,6 +99,7 @@ The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 - `Super + Shift + V`: Open Neovim
 
 ### Window Management
+
 - `Super + Shift + Q`: Close active window
 - `Super + V`: Toggle floating
 - `Super + P`: Pseudo Tiling
@@ -105,18 +107,21 @@ The following shortcuts are defined in `hypr/conf/keybindings.conf`:
 - `Super + Arrow Keys`: Move focus
 
 ### Workspaces
+
 - `Super + 1-10`: Switch workspaces
 - `Super + Shift + 1-10`: Move window to workspace
 - `Super + Scroll`: Switch workspaces
 
 ### System (Media Keys)
+
 - `Vol Up/Down/Mute`: Audio Control
 - `Brightness Up/Down`: Screen Brightness
 - `Media Play/Pause/Next/Prev`: Player Control
 
 ## Usage
 
-These configurations are designed to be located in `~/.config/`. 
+These configurations are designed to be located in `~/.config/`.
+
 - To apply changes to Hyprland, reload the compositor (usually automatic on save or via `hyprctl reload`).
 - To reload Waybar, use the script at `waybar/reload.sh`.
 
