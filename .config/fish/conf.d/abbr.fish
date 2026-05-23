@@ -7,12 +7,22 @@ abbr -a gs 'git status'
 abbr -a ga 'git add'
 abbr -a ga. 'git add .'
 abbr -a gc 'git commit -m'
-abbr -a gac 'git add . && git commit -m' # the "tazy dev" special🗿
+abbr -a gac 'git add . && git commit -m' # the "lazy dev" special🗿
 abbr -a gp 'git push'
 abbr -a gl 'git pull'
 abbr -a gco 'git checkout'
 abbr -a gcm 'git checkout main'
 abbr -a gd 'git diff'
+abbr -a gds 'git diff --staged'
+abbr -a gap 'git add -p'
+abbr -a gamend 'git commit --amend --no-edit'
+abbr -a glog 'git log --graph --oneline --all --decorate'
+abbr -a grl 'git log -g' # reflog
+abbr -a gst 'git stash'
+abbr -a gstp 'git stash pop'
+abbr -a gwho 'git config user.name && git config user.email'
+abbr -a gunstage 'git reset HEAD --'
+abbr -a gundo 'git reset --soft HEAD~1'
 
 # --- Systemd & Power ---
 abbr -a off 'sudo shutdown now'
