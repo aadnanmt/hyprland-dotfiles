@@ -5,7 +5,7 @@
 # -----------------------------------------------------
 
 # --- Toggle Logic ---
-if pgrep -x "wofi" > /dev/null; then
+if pgrep -x "wofi" >/dev/null; then
     pkill -x "wofi"
     exit 0
 fi
@@ -41,29 +41,28 @@ while IFS= read -r img; do
     hash_name=$(echo -n "$img" | md5sum | awk '{print $1}')
     thumb_path="$CACHE_DIR/$hash_name.jpg"
     LIST="${LIST}img:${thumb_path}:text:${img}\n"
-done <<< "$FILES"
+done <<<"$FILES"
 
 # exec wofi
 SELECTED_RAW=$(echo -e "$LIST" | wofi --dmenu \
     --conf "$CONFIG_FILE" \
     --style "$STYLE_FILE" \
     --prompt "Select Wallpaper" \
---cache-file /dev/null)
+    --cache-file /dev/null)
 
 SELECTED=$(echo "$SELECTED_RAW" | sed 's/.*:text://')
 
 if [ -n "$SELECTED" ]; then
     WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED"
-    
+
     hyprctl hyprpaper unload all
-    
-    
+
     MONITORS=$(hyprctl monitors -j | jq -r '.[].name')
     for m in $MONITORS; do
         hyprctl hyprpaper wallpaper "$m,$WALLPAPER_PATH"
     done
-    
-    cat <<EOF > "$HOME/.config/hypr/hyprpaper.conf"
+
+    cat <<EOF >"$HOME/.config/hypr/hyprpaper.conf"
 preload = $WALLPAPER_PATH
 
 wallpaper {
@@ -74,5 +73,5 @@ wallpaper {
 ipc = true
 splash = false
 EOF
-    
+
 fi

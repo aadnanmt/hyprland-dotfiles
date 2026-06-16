@@ -4,12 +4,12 @@
 LOCK_FILE="/tmp/waybar_reload.lock"
 if [ -f "$LOCK_FILE" ]; then
     PID=$(cat "$LOCK_FILE")
-    if ps -p "$PID" > /dev/null; then
+    if ps -p "$PID" >/dev/null; then
         echo "Waybar reloader is already running (PID: $PID)."
         exit 1
     fi
 fi
-echo $$ > "$LOCK_FILE"
+echo $$ >"$LOCK_FILE"
 trap 'rm -f "$LOCK_FILE"; exit' INT TERM EXIT
 
 CONFIG_FILE="$HOME/.config/waybar/config.jsonc"
@@ -28,10 +28,10 @@ fi
 echo "Monitoring Waybar config and style files for changes..."
 
 inotifywait -m "$CONFIG_FILE" "$STYLE_FILE" -e modify |
-while read -r path _; do
-    echo "Change detected in $path. Reloading Waybar..."
-    pkill -x waybar
-    # Start Waybar in background
-    waybar -c "$CONFIG_FILE" -s "$STYLE_FILE" > /dev/null 2>&1 &
-    echo "Waybar reloaded."
-done
+    while read -r path _; do
+        echo "Change detected in $path. Reloading Waybar..."
+        pkill -x waybar
+        # Start Waybar in background
+        waybar -c "$CONFIG_FILE" -s "$STYLE_FILE" >/dev/null 2>&1 &
+        echo "Waybar reloaded."
+    done

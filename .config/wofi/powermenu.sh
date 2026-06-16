@@ -5,7 +5,7 @@
 # -----------------------------------------------------
 
 # --- Toggle Logic ---
-if pgrep -x "wofi" > /dev/null; then
+if pgrep -x "wofi" >/dev/null; then
     pkill -x "wofi"
     exit 0
 fi
@@ -21,19 +21,19 @@ logout='󰍃 Logout'
 selected=$(echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | wofi --dmenu --prompt "Power Menu" --width 250 --height 280 --cache-file /dev/null)
 
 case $selected in
-    "$shutdown")
-        systemctl poweroff
+"$shutdown")
+    systemctl poweroff
     ;;
-    "$reboot")
-        systemctl reboot
+"$reboot")
+    systemctl reboot
     ;;
-    "$lock")
-        hyprlock
+"$lock")
+    hyprlock
     ;;
-    "$suspend")
-        systemctl suspend
+"$suspend")
+    systemctl suspend
     ;;
-    "$logout")
-        hyprctl dispatch exit
+"$logout")
+    hyprctl dispatch exit
     ;;
 esac
